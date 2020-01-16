@@ -23,12 +23,22 @@
 # if __name__ == '__main__':
 #     app.run()
 
-from flask import Flask
+# from flask import Flask
+# app = Flask(__name__)
+
+# @app.route('/user/<username>')
+# def show(username):
+#     return f"Hi {username[5]}"
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
+from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route('/user/<username>')
-def show(username):
-    return f"Hi {username}"
+@app.route("/")
+def index():
+   return render_template('index.html') # by default looks for index.html inside a templates folder in the same directory as this script.
 
 if __name__ == '__main__':
     app.run()
